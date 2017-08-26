@@ -1,3 +1,4 @@
+- Config file for controlling behavior
 - Need an event log, so that we can do aggregates across time intervals
 - Allow de-duplication over a range (i.e. only count at most once in a hour,
   day, week, etc.)
@@ -9,4 +10,3 @@
   - database
 - Upon count:
   - add to metrics and update aggregates
-- Streaming events, counts updated as they come in
