@@ -1,16 +1,11 @@
-- Take an event in, count it
-- Validate that incoming event count is numeric
 - Allow de-duplication over a range (i.e. only count at most once in a hour,
   day, week, etc.)
 - Listen for counting events from:
-  - STDIN
   - UDP
   - TDP
 - Output counting events to:
-  - STDOUT (no aggregation)
   - file
   - database
 - Upon count:
-  - Print to STDOUT
   - add to metrics and update aggregates
 - Streaming events, counts updated as they come in
