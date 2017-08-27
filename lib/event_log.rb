@@ -15,8 +15,10 @@ class EventLog
       break if e[0] < earliest_time
 
       report[e[0].to_s] ||= 0
-      report[e[0].to_s] += e[1] if Reader.parse(e[1])[1].eql?(event)
+      report[e[0].to_s] += e[2].num if e[2].name.eql?(event)
     end
+
+    report
   end
 
   def last_hour_by_minute(event=nil)
