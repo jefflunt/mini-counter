@@ -1,3 +1,5 @@
+- Allow some kind of get status, with a date range, to dump metrics + aggregates
+  out of the system
 - Config file for controlling behavior
 - Need an event log, so that we can do aggregates across time intervals
 - Allow de-duplication over a range (i.e. only count at most once in a hour,
