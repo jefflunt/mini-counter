@@ -3,31 +3,40 @@ class EventLog
     @events = []
   end
 
-  def log(raw_event)
-    @events << [Time.now.utc, raw_event]
+  def log(raw_event, event)
+    @events << [Time.now.utc, raw_event, event]
   end
 
-  def last_minute_by_second
+  def last_minute_by_second(event=nil)
+    earliest_time = Time.now.utc - 60
+    report = {}
+
+    @events.each do |e|
+      break if e[0] < earliest_time
+
+      report[e[0].to_s] ||= 0
+      report[e[0].to_s] += e[1] if Reader.parse(e[1])[1].eql?(event)
+    end
   end
 
-  def last_hour_by_minute
+  def last_hour_by_minute(event=nil)
   end
 
-  def last_day_by_hour
+  def last_day_by_hour(event=nil)
   end
 
-  def last_7_days_by_day
+  def last_7_days_by_day(event=nil)
   end
 
-  def last_30_days_by_day
+  def last_30_days_by_day(event=nil)
   end
 
-  def last_year_by_week
+  def last_year_by_week(event=nil)
   end
 
-  def last_year_by_month
+  def last_year_by_month(event=nil)
   end
 
-  def custom_range_by_day(start_date, end_date)
+  def custom_range_by_day(start_date, end_date, event)
   end
 end

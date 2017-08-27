@@ -3,6 +3,7 @@ $LOAD_PATH.unshift './lib'
 require 'pp'
 require 'reader'
 require 'counter'
+require 'event'
 require 'event_log'
 
 counts = Counter.new
@@ -10,10 +11,10 @@ events = EventLog.new
 
 loop do
   raw_event = Reader.read
-  num, event = Reader.parse(raw_event)
+  event = Reader.parse(raw_event)
 
-  events.log(raw_event)
-  counts.count(num, event)
+  events.log(raw_event, event)
+  counts.count(event)
   pp events
   pp counts
 end
